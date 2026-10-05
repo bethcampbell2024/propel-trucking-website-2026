@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
-import { ADDRESS_LINE, COMPANY, DEMO_MODE, NAV_LINKS } from "@/data/company";
+import { ADDRESS_LINE, COMPANY, DEMO_MODE, NAV_LINKS, asset } from "@/data/company";
 import { ButtonLink, Container, Icon } from "@/components/ui";
 import { cx } from "@/lib/cx";
 
 export function Logo({ className = "h-11", city = false }: { className?: string; city?: boolean }) {
-  return <img src={city ? "/images/logo-with-city.png" : "/images/logo-oval.png"} alt="Propel Trucking, Inc." className={cx("w-auto", className)} />;
+  return <img src={asset(city ? "images/logo-with-city.png" : "images/logo-oval.png")} alt="Propel Trucking, Inc." className={cx("w-auto", className)} />;
 }
 
 function ScrollToTop() {

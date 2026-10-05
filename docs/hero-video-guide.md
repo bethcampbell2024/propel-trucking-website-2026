@@ -58,7 +58,7 @@ Paths to the photo and the work folder are set at the top of `common.py`.
 A real clip (or an AI image-to-video clip made from the photo) drops in the same way:
 
 1. Save it as `public/video/hero.mp4` (H.264, 1080p, ideally under about 8 MB, no audio needed).
-2. Set `HERO_VIDEO_SRC = "/video/hero.mp4"` in `src/data/company.ts`.
+2. Set `HERO_VIDEO_SRC = asset("video/hero.mp4")` in `src/data/company.ts` (the `asset()` helper keeps it working under the Pages sub-path).
 3. Optional: set `HERO_POSTER` to a still from it.
 
 Visitors with "reduce motion" or data-saver on get the poster photo instead, and the video fades in

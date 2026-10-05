@@ -102,7 +102,7 @@ function issueToken(user: StaffUser, kind: TokenKind): EmailPreview {
   const token = crypto.randomUUID();
   writeTokens([...readTokens().filter((t) => t.email !== user.email), { token, email: user.email, kind, expiresAt: Date.now() + EXPIRY[kind] }]);
   const path = `/admin/set-password/${token}`;
-  const link = `${window.location.origin}${path}`;
+  const link = `${window.location.origin}${import.meta.env.BASE_URL.replace(/\/$/, "")}${path}`;
   const inviter = localAuth.currentUser()?.name ?? "Propel";
   const copy =
     kind === "invite"

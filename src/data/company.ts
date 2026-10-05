@@ -3,10 +3,13 @@
 /** While true, the site shows a demo banner and the form offers sample data. Flip off for launch. */
 export const DEMO_MODE = true;
 
-/** Drop a real clip at e.g. "/video/hero.mp4" and it plays over the poster photo below. */
-export const HERO_VIDEO_SRC: string | null = "/video/hero.mp4";
+/** Public-folder file -> URL that also works when the site is served from a sub-path (GitHub Pages). */
+export const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`;
+
+/** Drop a real clip at e.g. "video/hero.mp4" and it plays over the poster photo below. */
+export const HERO_VIDEO_SRC: string | null = asset("video/hero.mp4");
 /** Shown while the video loads, and instead of it for reduced-motion or data-saver visitors. */
-export const HERO_POSTER = "/images/hero-poster.webp";
+export const HERO_POSTER = asset("images/hero-poster.webp");
 
 export const FOUNDER = { name: "Marc Campbell", title: "Founder" } as const;
 
@@ -35,7 +38,7 @@ export const NAV_LINKS = [
 ] as const;
 
 export const PHOTOS = {
-  tanker: "/images/fleet-tanker.webp",
-  truck105: "/images/fleet-105.webp",
-  truck104: "/images/fleet-104.webp",
+  tanker: asset("images/fleet-tanker.webp"),
+  truck105: asset("images/fleet-105.webp"),
+  truck104: asset("images/fleet-104.webp"),
 } as const;

@@ -26,7 +26,6 @@ export const COMPANY = {
 const { street, city, state, zip } = COMPANY.address;
 export const ADDRESS_LINE = `${street}, ${city}, ${state} ${zip}`;
 
-export const FMCSA_URL = `https://safer.fmcsa.dot.gov/query.asp?searchtype=ANY&query_type=queryCarrierSnapshot&query_param=USDOT&query_string=${COMPANY.usdot}`;
 export const MAP_EMBED_URL = `https://www.google.com/maps?q=${encodeURIComponent(ADDRESS_LINE)}&output=embed`;
 
 export const NAV_LINKS = [

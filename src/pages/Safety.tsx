@@ -1,9 +1,9 @@
-import { ButtonLink, CheckList, PageHeader, Section } from "@/components/ui";
-import { ADDRESS_LINE, COMPANY, FMCSA_URL } from "@/data/company";
+import { CheckList, PageHeader, Section } from "@/components/ui";
+import { ADDRESS_LINE, COMPANY } from "@/data/company";
 
 const COMMITMENTS = [
   "A DOT-compliant drug and alcohol testing program",
-  "Driver qualification files kept to FMCSA standards",
+  "Driver qualification files kept to federal standards",
   "Pre-employment verification of work history and driving records",
   "Equal opportunity employment for all qualified applicants",
 ] as const;
@@ -11,7 +11,7 @@ const COMMITMENTS = [
 export function Safety() {
   return (
     <>
-      <PageHeader eyebrow="Safety & credentials" title="Real company. Real record." intro="Here is how to verify us, and what we commit to." />
+      <PageHeader eyebrow="Safety & credentials" title="Real company. Real record." intro="Who we are, and what we commit to." />
       <Section>
         <div className="grid gap-8 md:grid-cols-2">
           <div className="card">
@@ -30,9 +30,6 @@ export function Safety() {
                 <dd className="text-lg font-semibold">{ADDRESS_LINE}</dd>
               </div>
             </dl>
-            <ButtonLink href={FMCSA_URL} className="mt-6">
-              Look us up on the FMCSA
-            </ButtonLink>
           </div>
           <div className="card">
             <h3 className="display mb-5 text-2xl">Our commitments</h3>

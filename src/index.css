@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #e5281c;
+  --color-brand-dark: #b81d13;
+  --color-ink: #0c0e12;
+  --color-ink-soft: #1a1d24;
+  --color-steel: #d4d5cd;
+  --color-paper: #f6f5f1;
+  --font-display: "Saira", "Arial Narrow", sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  /* Over a photo/video: a tight dark edge for crisp letters plus a wide soft halo for contrast. */
+  --text-shadow-hero: 0 1px 3px rgb(0 0 0 / 0.7), 0 4px 24px rgb(0 0 0 / 0.8);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  /* Keep a focused field clear of the sticky header when the browser scrolls it into view. */
+  input,
+  select,
+  textarea,
+  button {
+    scroll-margin-top: 8rem;
+  }
+  body {
+    font-family: var(--font-sans);
+    background: var(--color-paper);
+    color: var(--color-ink);
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer components {
+  .display {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    line-height: 1.02;
+  }
+  .eyebrow {
+    font-family: var(--font-display);
+    @apply text-xs font-bold uppercase tracking-[0.22em] text-brand;
+  }
+  .btn {
+    font-family: var(--font-display);
+    font-style: italic;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg px-6 py-3 font-bold transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply bg-brand text-white shadow-lg shadow-brand/30 hover:bg-brand-dark;
+  }
+  .btn-dark {
+    @apply bg-ink text-white hover:bg-ink-soft;
+  }
+  .btn-ghost {
+    @apply border border-white/40 text-white hover:bg-white/10;
+  }
+  .btn-outline {
+    @apply border border-ink/20 text-ink hover:bg-ink/5;
+  }
+  .input {
+    @apply w-full rounded-lg border border-ink/20 bg-white px-4 py-3 text-base text-ink placeholder:text-ink/40 focus:border-brand focus:ring-4 focus:ring-brand/15 focus:outline-none;
+  }
+  .input-error {
+    @apply border-brand ring-4 ring-brand/10;
+  }
+  .card {
+    @apply rounded-2xl bg-white p-6 shadow-sm ring-1 ring-ink/5;
+  }
+}
+
+@keyframes step-in {
+  from {
+    opacity: 0;
+    transform: translateX(28px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes slow-zoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08);
+  }
+}
+.animate-slow-zoom {
+  animation: slow-zoom 30s ease-in-out infinite alternate;
+  transform-origin: 60% 40%;
+}
+.animate-step-in {
+  animation: step-in 0.35s ease-out both;
+}
+.animate-fade-up {
+  animation: fade-up 0.8s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-step-in,
+  .animate-fade-up,
+  .animate-slow-zoom {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: white;
+  }
+}
